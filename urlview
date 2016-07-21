@@ -32,6 +32,13 @@ set match {(?:https?|ftps?|sftp|news|smtps?|imaps?|ssh|mailto|irc|ntp):[/]*(?:(?
 
 set result [regexp -all -expanded -nocase -inline -- $match $data]
 
+if {[llength $result] == 0} then {
+  # No URL found. Quit.
+  puts stderr "No URL found."
+  exit
+}
+
+# Print choices
 for {set i 0} {$i < [llength $result]} {incr i} {
   puts "\[$i\]  [lindex $result $i]"
 }

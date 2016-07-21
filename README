@@ -1,0 +1,5 @@
+URLVIEW implementation
+
+This program accepts a piped input which is then parsed, looking for URLs.
+After URLs are found, user input is required to select one of those and
+choose a program to open it.

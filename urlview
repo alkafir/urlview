@@ -28,7 +28,7 @@
 package require Tcl 8.6
 
 set data [read stdin]
-set match {(?:https?|ftps?|sftp|news|smtps?|imaps?|ssh|mailto|irc|ntp):[/]*(?:(?:[[:alnum:]_~.]|-)+(?::(?:[[:alnum:]_~.]|-)+)?@)?[[:alnum:].-]+(?::\d+)?(?:[/?](?:[[:alnum:]._~=?@+/&]|(?:[%]\d{2})|-)*)?(?:[#](?:[[:alnum:]_~]|-)*)?}
+set match {(?:https?|ftps?|sftp|news|smtps?|imaps?|ssh|mailto|irc|ntp):[/]*(?:(?:[[:alnum:]_~.]|-)+(?::(?:[[:alnum:]_~.]|-)+)?@)?[[:alnum:].-]+(?::\d+)?(?:[/?](?:[[:alnum:]._~=?@+/&]|(?:[%][[:alnum:]]{2})|-)*)?(?:[#](?:[[:alnum:]_~]|-)*)?}
 
 set result [regexp -all -expanded -nocase -inline -- $match $data]
 

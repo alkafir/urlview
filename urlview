@@ -38,6 +38,9 @@ if {[llength $result] == 0} then {
   exit
 }
 
+# Ensure no duplicates
+set result [lsort -unique $result]
+
 # Print choices
 for {set i 0} {$i < [llength $result]} {incr i} {
   puts "\[$i\]  [lindex $result $i]"

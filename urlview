@@ -22,13 +22,10 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-# WARNING: Not yet tested for compatibility against RFC-7320
-# https://tools.ietf.org/html/rfc7320
-
 package require Tcl 8.6
 
 set data [read stdin]
-set match {(?:https?|ftps?|sftp|news|smtps?|imaps?|ssh|mailto|irc|ntp):[/]*(?:(?:[[:alnum:]_~.]|-)+(?::(?:[[:alnum:]_~.]|-)+)?@)?[[:alnum:].-]+(?::\d+)?(?:[/?](?:[[:alnum:]._~=?@+/&;]|(?:[%][[:alnum:]]{2})|-)*)?(?:[#](?:[[:alnum:]_~]|-)*)?}
+set match {(?:https?|ftps?|sftp|news|smtps?|imaps?|ssh|mailto|irc|ntp):[/]*(?:[[:alnum:]/_~.#:?@!$&'()*+,;=%]|-|\[|\])+}
 
 set result [regexp -all -expanded -nocase -inline -- $match $data]
 
